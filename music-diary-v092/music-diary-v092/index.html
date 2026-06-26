@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Diary</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <main class="hero">
+    <section class="card hero-card">
+      <h1>Music Diary</h1>
+      <p>Seu espaço. Sua música. Seu mundo. ✨</p>
+      <p class="muted">Uma rede social Y2K para posts, perfis personalizados, músicas e diários.</p>
+
+      <div class="feature-row">
+        <div class="feature">🎵 músicas no perfil</div>
+        <div class="feature">📔 diário virtual</div>
+        <div class="feature">💖 posts e curtidas</div>
+        <div class="feature">🌸 perfil personalizável</div>
+      </div>
+
+      <div class="auth-tabs">
+        <a class="main-btn" href="login.html">Entrar</a>
+        <a class="main-btn" href="cadastro.html">Criar conta</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { redirectIfLoggedIn } from "./js/auth.js";
+    redirectIfLoggedIn();
+  </script>
+  <script type="module">import { applySavedTheme } from "./js/theme.js"; applySavedTheme();</script>
+</body>
+</html>

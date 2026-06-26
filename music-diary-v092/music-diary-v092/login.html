@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar | Music Diary</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <main class="auth-box">
+    <section class="card">
+      <h1 class="logo">Music Diary</h1>
+      <h2 class="window-title">Entrar</h2>
+
+      <form id="loginForm">
+        <label>E-mail</label>
+        <input name="email" type="email" placeholder="seuemail@email.com" required>
+
+        <label>Senha</label>
+        <input name="password" type="password" placeholder="Sua senha" required>
+
+        <button type="submit">Entrar</button>
+        <a class="soft-link" href="cadastro.html">Criar conta</a>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="js/auth.js"></script>
+  <script type="module">import { applySavedTheme } from "./js/theme.js"; applySavedTheme();</script>
+</body>
+</html>

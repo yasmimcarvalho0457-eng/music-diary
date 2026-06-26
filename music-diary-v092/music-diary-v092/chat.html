@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagens | Music Diary</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+  <header class="app-header">
+  <nav class="nav">
+    <a class="logo" href="feed.html">Music Diary</a>
+    <div class="nav-links">
+      <a href="feed.html">Feed</a>
+      <a href="profile.html">Perfil</a>
+      <a href="playlists.html">Playlists</a>
+      <a href="explore.html">Explorar</a>
+      <a href="social.html">Seguidores</a>
+      <a href="notifications.html">Notificações</a>
+      <a href="chat.html">Mensagens</a>
+      <button id="logoutBtn">Sair</button>
+    </div>
+  </nav>
+</header>
+
+  <main class="page chat-page">
+    <aside class="card chat-sidebar">
+      <h2 class="window-title">Conversas</h2>
+      <p class="muted">Escolha alguém para conversar.</p>
+      <div id="usersList"></div>
+    </aside>
+
+    <section class="card chat-window">
+      <div id="chatTitle" class="chat-title">
+        <div class="msn-icon">💬</div>
+        <div>
+          <strong>Music Messenger</strong>
+          <span>Selecione uma conversa</span>
+        </div>
+      </div>
+
+      <div id="typingStatus" class="typing-status hidden"></div>
+
+      <div id="messagesBox" class="messages-box">
+        <div class="empty-chat">Suas mensagens vão aparecer aqui ✨</div>
+      </div>
+
+      <div class="emoji-row">
+        <button class="emoji-btn" type="button">💖</button>
+        <button class="emoji-btn" type="button">😭</button>
+        <button class="emoji-btn" type="button">✨</button>
+        <button class="emoji-btn" type="button">🎵</button>
+        <button class="emoji-btn" type="button">🌸</button>
+        <button class="emoji-btn" type="button">💿</button>
+      </div>
+
+      <form id="messageForm" class="message-form hidden">
+        <input id="messageInput" placeholder="Digite sua mensagem...">
+        <input id="imageInput" placeholder="Link de imagem opcional">
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="js/chat.js"></script>
+  <script type="module" src="js/presence.js"></script>
+</body>
+</html>

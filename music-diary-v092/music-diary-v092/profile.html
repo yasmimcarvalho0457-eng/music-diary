@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil | Music Diary</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <header class="app-header">
+  <nav class="nav">
+    <a class="logo" href="feed.html">Music Diary</a>
+    <div class="nav-links">
+      <a href="feed.html">Feed</a>
+      <a href="profile.html">Perfil</a>
+      <a href="playlists.html">Playlists</a>
+      <a href="explore.html">Explorar</a>
+      <a href="social.html">Seguidores</a>
+      <a href="notifications.html">Notificações</a>
+      <a href="chat.html">Mensagens</a>
+      <button id="logoutBtn">Sair</button>
+    </div>
+  </nav>
+</header>
+
+  <main class="page">
+    <section class="card" id="profileView">Carregando perfil...</section>
+
+    <section class="card" style="margin-top:22px;">
+      <button id="editProfileBtn">⚙️ Editar perfil quando quiser</button>
+
+      <div id="editorPanel" class="hidden" style="margin-top:16px;">
+        <h2 class="window-title">Editor de perfil</h2>
+
+        <form id="profileForm">
+          <div class="editor-layout">
+            <div class="preview-box">
+              <div class="avatar-frame">
+                <img id="avatarPreview" class="avatar-img" alt="Prévia da foto">
+              </div>
+              <p class="muted">Pré-visualização</p>
+            </div>
+
+            <div>
+              <label>Nome de usuário</label>
+              <input name="username" placeholder="exemplo: yasmim">
+
+              <label>Bio</label>
+              <textarea name="bio" placeholder="Fale um pouco sobre você"></textarea>
+
+              <label>Link da foto de perfil</label>
+              <input id="photo" name="photo" placeholder="Cole o link da imagem">
+              <button type="button" id="loadPhotoBtn">Carregar foto</button>
+
+              <label>Link da capa/banner</label>
+              <input id="banner" name="banner" placeholder="Cole o link da imagem de capa">
+
+              
+              <label>Título da música do perfil</label>
+              <input name="musicTitle" placeholder="Exemplo: 505">
+
+              <label>Artista</label>
+              <input name="musicArtist" placeholder="Exemplo: Arctic Monkeys">
+
+              <label>Link da música</label>
+              <input name="musicUrl" placeholder="YouTube, Spotify ou link MP3">
+
+              <label>Tema</label>
+              <select name="theme">
+                <option value="sakura">Sakura</option>
+                <option value="aero">Frutiger Aero</option>
+                <option value="galaxy">Galaxy</option>
+                <option value="dark">Dark</option>
+              </select>
+
+              <div class="range-row">
+                <span>Zoom</span>
+                <input id="photoZoom" type="range" min="1" max="3" step="0.05" value="1">
+              </div>
+
+              <div class="range-row">
+                <span>Lado</span>
+                <input id="photoX" type="range" min="-80" max="80" step="1" value="0">
+              </div>
+
+              <div class="range-row">
+                <span>Altura</span>
+                <input id="photoY" type="range" min="-80" max="80" step="1" value="0">
+              </div>
+
+              <button type="submit">Salvar alterações</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/profile.js"></script>
+  <script type="module" src="js/presence.js"></script>
+</body>
+</html>
