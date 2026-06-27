@@ -1,0 +1,284 @@
+.chat-page {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.chat-sidebar,
+.chat-window {
+  min-height: 70vh;
+}
+
+.chat-user-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  background: rgba(255,255,255,.72);
+  border: 2px solid var(--pink);
+  border-radius: 18px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 3px 3px 0 var(--blue);
+  font-family: inherit;
+}
+
+.chat-user-card span {
+  display: block;
+  font-family: "Pixelify Sans", Arial, sans-serif;
+  font-size: 13px;
+  opacity: .75;
+}
+
+.chat-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 3px solid var(--pink);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.chat-title span {
+  display: block;
+  opacity: .72;
+  font-size: 13px;
+}
+
+.msn-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  border: 2px solid var(--purple);
+  box-shadow: 3px 3px 0 var(--purple);
+}
+
+.messages-box {
+  height: 440px;
+  overflow-y: auto;
+  padding: 14px;
+  border: 2px solid var(--blue);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.75), transparent 35%),
+    rgba(255,255,255,.42);
+}
+
+.empty-chat {
+  text-align: center;
+  padding: 40px 12px;
+  opacity: .8;
+}
+
+.message-row {
+  display: flex;
+  margin: 10px 0;
+}
+
+.message-row.mine {
+  justify-content: flex-end;
+}
+
+.message-row.theirs {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: min(70%, 520px);
+  padding: 10px 12px;
+  border-radius: 18px;
+  border: 2px solid var(--pink);
+  background: #fff7fd;
+  box-shadow: 3px 3px 0 var(--blue);
+}
+
+.message-row.mine .message-bubble {
+  background: linear-gradient(135deg, #ffdbf5, #dffaff);
+}
+
+.message-row.theirs .message-bubble {
+  background: linear-gradient(135deg, #ffffff, #fff2c9);
+}
+
+.message-bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.35;
+}
+
+.message-bubble small {
+  display: block;
+  margin-top: 5px;
+  opacity: .65;
+  font-size: 11px;
+  text-align: right;
+}
+
+.emoji-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.emoji-btn {
+  padding: 7px 9px;
+  font-family: inherit;
+}
+
+.message-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.message-form input {
+  margin: 0;
+}
+
+body[data-theme="galaxy"] .chat-user-card,
+body[data-theme="dark"] .chat-user-card,
+body[data-theme="galaxy"] .messages-box,
+body[data-theme="dark"] .messages-box {
+  background: rgba(255,255,255,.12);
+  color: var(--purple);
+}
+
+body[data-theme="galaxy"] .message-bubble,
+body[data-theme="dark"] .message-bubble {
+  color: #1b1030;
+}
+
+@media (max-width: 850px) {
+  .chat-page {
+    grid-template-columns: 1fr;
+  }
+
+  .messages-box {
+    height: 390px;
+  }
+
+  .message-bubble {
+    max-width: 88%;
+  }
+}
+
+
+/* ===== Music Diary v0.8.1 ===== */
+.chat-user-card.active {
+  background: linear-gradient(135deg, rgba(255,219,245,.88), rgba(223,250,255,.88));
+  border-color: var(--blue);
+}
+
+.chat-avatar-wrap {
+  position: relative;
+  width: fit-content;
+}
+
+.online-dot {
+  position: absolute;
+  right: -1px;
+  bottom: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #929292;
+  border: 2px solid white;
+}
+
+.online-dot.is-online {
+  background: #35ff69;
+  box-shadow: 0 0 8px #35ff69;
+}
+
+.chat-user-card small {
+  display: block;
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "Pixelify Sans", Arial, sans-serif;
+  opacity: .65;
+  margin-top: 3px;
+}
+
+.typing-status {
+  min-height: 24px;
+  margin: 0 0 8px;
+  color: var(--pink);
+  font-weight: bold;
+  animation: typingPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes typingPulse {
+  from { opacity: .45; }
+  to { opacity: 1; }
+}
+
+.chat-title {
+  background: linear-gradient(135deg, rgba(255,255,255,.46), rgba(114,231,255,.18));
+  border-radius: 18px;
+  padding: 10px;
+  border: 2px solid var(--blue);
+}
+
+body[data-theme="galaxy"] .chat-user-card.active,
+body[data-theme="dark"] .chat-user-card.active {
+  background: rgba(255,255,255,.20);
+}
+
+body[data-theme="galaxy"] .chat-title,
+body[data-theme="dark"] .chat-title {
+  background: rgba(255,255,255,.12);
+}
+
+
+/* ===== Music Diary v0.8.2 ===== */
+.chat-user-card {
+  position: relative;
+}
+
+.chat-user-card em {
+  margin-left: auto;
+  font-style: normal;
+  font-size: 11px;
+  opacity: .65;
+}
+
+.message-form {
+  grid-template-columns: 1fr 1fr auto;
+}
+
+.message-image {
+  display: block;
+  max-width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid var(--blue);
+  margin-top: 6px;
+}
+
+.message-bubble:has(.message-image) {
+  min-width: 220px;
+}
+
+body[data-theme="galaxy"] .chat-user-card em,
+body[data-theme="dark"] .chat-user-card em {
+  color: rgba(255,244,255,.72);
+}
+
+@media (max-width: 700px) {
+  .message-form {
+    grid-template-columns: 1fr;
+  }
+
+  .message-image {
+    max-height: 220px;
+  }
+}

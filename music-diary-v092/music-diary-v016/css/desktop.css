@@ -1,0 +1,347 @@
+.desktop-body {
+  overflow: hidden;
+}
+
+.desktop-shell {
+  height: calc(100vh - 68px);
+  min-height: 580px;
+  width: min(1240px, 96%);
+  margin: 14px auto;
+  border: 3px solid var(--pink);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255,255,255,.8), transparent 18%),
+    radial-gradient(circle at 75% 20%, rgba(114,231,255,.55), transparent 22%),
+    linear-gradient(135deg, rgba(255,158,234,.62), rgba(204,248,255,.78), rgba(255,246,184,.72));
+  position: relative;
+}
+
+.desktop-area {
+  position: relative;
+  height: calc(100% - 46px);
+  padding: 22px;
+}
+
+.desktop-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 92px);
+  gap: 18px;
+  width: fit-content;
+}
+
+.desktop-icon {
+  width: 92px;
+  min-height: 88px;
+  border: 2px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  color: var(--purple);
+  font-family: "Pixelify Sans", Arial, sans-serif;
+  padding: 8px;
+  text-align: center;
+}
+
+.desktop-icon:hover,
+.desktop-icon.selected {
+  border-color: var(--blue);
+  background: rgba(255,255,255,.36);
+  box-shadow: 2px 2px 0 var(--pink);
+}
+
+.icon-img {
+  display: block;
+  font-size: 36px;
+  filter: drop-shadow(2px 2px 0 white);
+}
+
+.icon-label {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 white;
+}
+
+.desktop-window {
+  position: absolute;
+  width: min(520px, 86vw);
+  min-height: 260px;
+  background: rgba(255,255,255,.86);
+  border: 3px solid var(--pink);
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 rgba(114,231,255,.8);
+  overflow: hidden;
+}
+
+.desktop-window.focused {
+  border-color: var(--blue);
+}
+
+.desktop-window.minimized {
+  display: none;
+}
+
+.window-bar {
+  height: 38px;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  border-bottom: 3px solid var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 12px;
+  cursor: move;
+  user-select: none;
+  font-family: "Silkscreen", cursive;
+  color: #21052d;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.window-controls button {
+  width: 28px;
+  height: 24px;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 #21052d;
+  background: #fff7fd;
+}
+
+.window-content {
+  padding: 16px;
+  max-height: 520px;
+  overflow: auto;
+}
+
+.desktop-banner {
+  height: 110px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--blue);
+  margin-bottom: 12px;
+}
+
+.desktop-profile {
+  text-align: center;
+}
+
+.winamp-box {
+  background: linear-gradient(135deg, #1d1230, #46205d);
+  border-radius: 18px;
+  padding: 12px;
+  color: white;
+  border: 3px solid #101010;
+}
+
+.winamp-screen {
+  background: #161616;
+  color: #7dff75;
+  border: 2px inset #444;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-family: "Silkscreen", cursive;
+}
+
+.winamp-screen span,
+.winamp-screen small {
+  display: block;
+  opacity: .8;
+}
+
+.taskbar {
+  height: 46px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 10px;
+  background: rgba(255,255,255,.74);
+  border-top: 3px solid var(--pink);
+}
+
+.start-btn,
+.taskbar-app {
+  height: 32px;
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+.taskbar-apps {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.taskbar-app {
+  font-family: "Pixelify Sans", Arial, sans-serif;
+  min-width: max-content;
+}
+
+.taskbar-app.is-minimized {
+  opacity: .65;
+}
+
+.tray {
+  font-family: "Silkscreen", cursive;
+  background: rgba(255,255,255,.78);
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  padding: 5px 8px;
+}
+
+body[data-theme="galaxy"] .desktop-shell,
+body[data-theme="dark"] .desktop-shell {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 12%),
+    radial-gradient(circle at 80% 15%, rgba(197,108,255,.38), transparent 20%),
+    linear-gradient(135deg, #16072c, #21125b, #080812);
+}
+
+body[data-theme="galaxy"] .desktop-window,
+body[data-theme="dark"] .desktop-window,
+body[data-theme="galaxy"] .taskbar,
+body[data-theme="dark"] .taskbar {
+  background: rgba(22,18,42,.90);
+  color: var(--purple);
+}
+
+body[data-theme="galaxy"] .desktop-icon,
+body[data-theme="dark"] .desktop-icon {
+  color: var(--purple);
+}
+
+body[data-theme="galaxy"] .icon-label,
+body[data-theme="dark"] .icon-label {
+  text-shadow: 1px 1px 0 #000;
+}
+
+@media (max-width: 700px) {
+  .desktop-shell {
+    height: calc(100vh - 90px);
+    min-height: 620px;
+  }
+
+  .desktop-icons {
+    grid-template-columns: repeat(3, 82px);
+    gap: 10px;
+  }
+
+  .desktop-icon {
+    width: 82px;
+    font-size: 13px;
+  }
+
+  .desktop-window {
+    width: 92vw;
+    left: 10px !important;
+  }
+
+  .taskbar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .start-btn {
+    display: none;
+  }
+}
+
+
+/* ===== Music Diary v0.11.1 - Correções Desktop ===== */
+.desktop-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.desktop-shell {
+  height: auto;
+  min-height: calc(100vh - 90px);
+}
+
+.desktop-area {
+  min-height: 620px;
+  height: auto;
+  overflow: visible;
+}
+
+.desktop-icon {
+  touch-action: manipulation;
+}
+
+.desktop-window {
+  max-height: calc(100vh - 150px);
+}
+
+.window-content {
+  max-height: calc(100vh - 210px);
+}
+
+@media (max-width: 700px) {
+  .desktop-body {
+    overflow-y: auto;
+  }
+
+  .desktop-shell {
+    height: auto;
+    min-height: calc(100vh - 80px);
+    margin-bottom: 20px;
+  }
+
+  .desktop-area {
+    min-height: 760px;
+    padding: 14px;
+    padding-bottom: 70px;
+  }
+
+  .desktop-icons {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .desktop-icon {
+    width: 100%;
+    min-height: 80px;
+  }
+
+  .desktop-window {
+    position: absolute;
+    width: calc(100% - 20px);
+    max-height: 520px;
+  }
+
+  .window-content {
+    max-height: 440px;
+  }
+
+  .taskbar {
+    position: sticky;
+    bottom: 0;
+    z-index: 9999;
+  }
+}
+
+
+/* ===== v0.12.2 Desktop leve ===== */
+.desktop-shell,
+.desktop-window {
+  box-shadow: 3px 3px 0 rgba(114,231,255,.35) !important;
+}
+
+.desktop-icon:hover,
+.desktop-icon.selected {
+  box-shadow: 1px 1px 0 rgba(255, 122, 218, .5) !important;
+}
+
+@media (max-width: 900px) {
+  .desktop-shell {
+    border-radius: 18px;
+  }
+
+  .desktop-window {
+    border-radius: 14px;
+  }
+}

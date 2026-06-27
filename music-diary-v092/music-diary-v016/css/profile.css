@@ -1,0 +1,652 @@
+.profile-cover {
+  height: 230px;
+  border-radius: 24px;
+  border: 3px solid #ff7bd8;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.sparkle {
+  font-size: 48px;
+  color: white;
+  text-shadow: 0 0 12px #ff31b8, 0 0 22px #72e7ff;
+}
+
+.profile-main { text-align: center; }
+
+.profile-main h2 {
+  color: #ff31b8;
+  font-size: 32px;
+  margin: 8px 0 0;
+}
+
+.bio-box {
+  width: min(660px, 94%);
+  margin: 14px auto;
+  background: #fff6fd;
+  border: 2px dashed #ff72d2;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.profile-widgets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.mini-window {
+  background: rgba(255,255,255,.75);
+  border: 2px solid #7beaff;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 3px 3px 0 #ff9eea;
+}
+
+.editor-layout {
+  display: grid;
+  grid-template-columns: 165px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.preview-box { text-align: center; }
+
+.preview-box .avatar-frame {
+  width: 135px;
+  height: 135px;
+  margin: 0 auto;
+  border-width: 5px;
+}
+
+.range-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+input[type="range"] { padding: 0; accent-color: #ff31b8; }
+
+@media (max-width: 700px) {
+  .profile-widgets, .editor-layout { grid-template-columns: 1fr; }
+}
+
+.stats-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 12px 0 16px;
+}
+
+.stats-row span {
+  background: rgba(255,255,255,.75);
+  border: 2px solid #7beaff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  box-shadow: 2px 2px 0 #ff9eea;
+}
+
+
+/* ===== Music Diary v0.7 - Player ===== */
+.music-player {
+  background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,225,247,.72));
+  border: 2px solid var(--pink);
+  border-radius: 18px;
+  padding: 12px;
+  margin-top: 10px;
+  box-shadow: 3px 3px 0 var(--blue);
+}
+
+.player-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.player-disc {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, white, var(--blue), var(--pink));
+  border: 2px solid var(--purple);
+  animation: discSpin 7s linear infinite;
+}
+
+@keyframes discSpin {
+  to { transform: rotate(360deg); }
+}
+
+.player-top strong {
+  color: var(--pink);
+  font-size: 17px;
+}
+
+.player-top p {
+  margin: 3px 0 0;
+  opacity: .8;
+}
+
+.music-embed {
+  width: 100%;
+  height: 210px;
+  border: 0;
+  border-radius: 14px;
+}
+
+.spotify-embed {
+  width: 100%;
+  height: 152px;
+  border: 0;
+  border-radius: 14px;
+}
+
+.audio-player {
+  width: 100%;
+}
+
+.empty-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body[data-theme="galaxy"] .music-player,
+body[data-theme="dark"] .music-player {
+  background: rgba(255,255,255,.12);
+  color: var(--purple);
+}
+
+@media (max-width: 650px) {
+  .music-embed {
+    height: 185px;
+  }
+}
+
+
+.status-box {
+  width: fit-content;
+  max-width: min(620px, 94%);
+  margin: 10px auto;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.74);
+  border: 2px solid var(--blue);
+  box-shadow: 3px 3px 0 var(--pink-2);
+  font-weight: bold;
+}
+
+.public-playlist-owner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.public-playlist-owner h2 {
+  margin: 0;
+  color: var(--pink);
+  font-family: "Silkscreen", cursive;
+}
+
+body[data-theme="galaxy"] .status-box,
+body[data-theme="dark"] .status-box {
+  background: rgba(255,255,255,.12);
+  color: var(--purple);
+}
+
+
+/* ===== Music Diary v0.11.3 - Pré-visualização de corte ===== */
+.crop-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  background: rgba(35, 8, 48, .62);
+  padding: 16px;
+}
+
+.crop-panel {
+  width: min(720px, 96vw);
+  max-height: 92vh;
+  overflow: auto;
+  background: rgba(255,255,255,.94);
+  border: 3px solid var(--pink);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 rgba(114,231,255,.75);
+  padding: 14px;
+}
+
+.crop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--blue);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  font-family: "Silkscreen", cursive;
+  color: var(--pink);
+}
+
+.crop-header button {
+  width: 36px;
+  height: 32px;
+  padding: 0;
+}
+
+.crop-stage {
+  position: relative;
+  height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(45deg, rgba(255,255,255,.7) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,.7) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,.7) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,.7) 75%),
+    #dffaff;
+  background-size: 26px 26px;
+  background-position: 0 0, 0 13px, 13px -13px, -13px 0;
+  border: 3px solid var(--blue);
+  display: grid;
+  place-items: center;
+}
+
+.crop-stage img {
+  max-width: 90%;
+  max-height: 90%;
+  transform-origin: center center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.crop-frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 4px solid #ff4fc3;
+  box-shadow:
+    0 0 0 999px rgba(20, 10, 28, .44),
+    0 0 18px rgba(255, 79, 195, .85);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.photo-frame {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+}
+
+.banner-frame {
+  width: min(520px, 84vw);
+  height: 170px;
+  border-radius: 18px;
+}
+
+.crop-controls {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.crop-controls label {
+  font-weight: bold;
+  color: var(--purple);
+}
+
+.crop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.crop-help {
+  margin-top: 10px;
+}
+
+body[data-theme="galaxy"] .crop-panel,
+body[data-theme="dark"] .crop-panel {
+  background: rgba(22,18,42,.96);
+  color: var(--purple);
+}
+
+body[data-theme="galaxy"] .crop-controls label,
+body[data-theme="dark"] .crop-controls label {
+  color: var(--purple);
+}
+
+@media (max-width: 650px) {
+  .crop-stage {
+    height: 300px;
+  }
+
+  .photo-frame {
+    width: 180px;
+    height: 180px;
+  }
+
+  .banner-frame {
+    width: 86vw;
+    height: 130px;
+  }
+}
+
+
+/* Correção v0.11.4: modal de corte fechado por padrão */
+.crop-modal.hidden {
+  display: none !important;
+}
+
+
+/* ===== Music Diary v0.11.5 - corte fiel ao perfil ===== */
+.profile-cover {
+  position: relative;
+  overflow: hidden;
+  background-image: none !important;
+}
+
+.profile-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  display: block;
+}
+
+.profile-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255,255,255,.15), rgba(255,180,235,.25));
+  pointer-events: none;
+}
+
+.crop-stage {
+  display: grid;
+  place-items: center;
+}
+
+.crop-stage img {
+  width: 220px;
+  height: 220px;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+}
+
+.crop-frame.photo-frame {
+  width: 220px;
+  height: 220px;
+}
+
+.crop-frame.banner-frame {
+  width: min(520px, 84vw);
+  height: 170px;
+}
+
+.crop-frame.banner-frame + * {
+  display: none;
+}
+
+.crop-stage:has(.banner-frame) img,
+.crop-stage.banner-mode img {
+  width: min(520px, 84vw);
+  height: 170px;
+  object-fit: cover;
+}
+
+@media (max-width: 650px) {
+  .crop-stage img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .crop-frame.photo-frame {
+    width: 180px;
+    height: 180px;
+  }
+
+  .crop-stage:has(.banner-frame) img,
+  .crop-stage.banner-mode img {
+    width: 86vw;
+    height: 130px;
+  }
+}
+
+
+/* ===== Music Diary v0.15 - Banner inteligente PC/Celular ===== */
+.profile-cover-img {
+  transform: translate(var(--banner-desktop-x, 0px), var(--banner-desktop-y, 0px)) scale(var(--banner-desktop-zoom, 1)) !important;
+  transform-origin: center center;
+}
+
+.crop-device-row {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 12px;
+}
+
+.crop-device-row label {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.crop-device-row select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 14px;
+  border: 2px solid var(--blue);
+  font-family: "Pixelify Sans", Arial, sans-serif;
+}
+
+.desktop-banner-frame {
+  width: min(620px, 86vw);
+  height: 205px;
+  border-style: dashed;
+}
+
+.mobile-banner-frame {
+  width: min(360px, 78vw);
+  height: 210px;
+  border-style: dashed;
+}
+
+.crop-stage.banner-mode img {
+  width: min(620px, 86vw);
+  height: 205px;
+  object-fit: cover;
+}
+
+.crop-stage.mobile-banner-mode img {
+  width: min(360px, 78vw);
+  height: 210px;
+  object-fit: cover;
+}
+
+@media (max-width: 650px) {
+  .profile-cover-img {
+    transform: translate(var(--banner-mobile-x, 0px), var(--banner-mobile-y, 0px)) scale(var(--banner-mobile-zoom, 1)) !important;
+  }
+
+  .crop-stage.banner-mode img,
+  .desktop-banner-frame {
+    width: 86vw;
+    height: 150px;
+  }
+
+  .crop-stage.mobile-banner-mode img,
+  .mobile-banner-frame {
+    width: 78vw;
+    height: 200px;
+  }
+}
+
+
+/* ===== Music Diary v0.15.1 - Banner corrigido de verdade ===== */
+.profile-cover {
+  position: relative !important;
+  overflow: hidden !important;
+  background: rgba(0,0,0,.18);
+}
+
+.profile-cover-img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  transform-origin: center center !important;
+  transform: translate(var(--banner-desktop-x, 0px), var(--banner-desktop-y, 0px)) scale(var(--banner-desktop-zoom, 1)) !important;
+}
+
+.profile-cover-overlay,
+.profile-cover .sparkle {
+  position: absolute !important;
+  z-index: 2;
+}
+
+.crop-stage {
+  overflow: hidden !important;
+}
+
+.crop-stage.banner-mode img {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.crop-frame {
+  z-index: 3;
+}
+
+.crop-stage.banner-mode {
+  width: min(620px, 86vw);
+  height: 205px;
+  margin: 0 auto;
+}
+
+.crop-stage.mobile-banner-mode {
+  width: min(360px, 78vw);
+  height: 210px;
+}
+
+.desktop-banner-frame {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mobile-banner-frame {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (max-width: 650px) {
+  .profile-cover-img {
+    transform: translate(var(--banner-mobile-x, 0px), var(--banner-mobile-y, 0px)) scale(var(--banner-mobile-zoom, 1)) !important;
+  }
+
+  .crop-stage.banner-mode {
+    width: 86vw;
+    height: 150px;
+  }
+
+  .crop-stage.mobile-banner-mode {
+    width: 78vw;
+    height: 200px;
+  }
+}
+
+
+/* ===== Music Diary v0.16 - Banner reescrito com background-image ===== */
+.profile-cover.banner-bg {
+  background-size: calc(var(--banner-desktop-size, 1) * 100%) auto !important;
+  background-position: var(--banner-desktop-x, 50%) var(--banner-desktop-y, 50%) !important;
+  background-repeat: no-repeat !important;
+  background-color: rgba(0,0,0,.20) !important;
+}
+
+.profile-cover.banner-bg .sparkle {
+  position: absolute;
+  z-index: 2;
+}
+
+.profile-cover-img {
+  display: none !important;
+}
+
+.crop-device-row {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 12px;
+}
+
+.crop-device-row label {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.crop-device-row select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 14px;
+  border: 2px solid var(--blue);
+  font-family: "Pixelify Sans", Arial, sans-serif;
+}
+
+.crop-stage.banner-mode {
+  width: min(680px, 88vw);
+  height: 230px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,.25);
+  background-position: 50% 50%;
+  background-size: 100% auto;
+}
+
+.crop-stage.mobile-banner-mode {
+  width: min(380px, 78vw);
+  height: 220px;
+}
+
+.crop-stage.banner-mode img {
+  opacity: 0 !important;
+}
+
+.desktop-banner-frame,
+.mobile-banner-frame {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (max-width: 650px) {
+  .profile-cover.banner-bg {
+    background-size: calc(var(--banner-mobile-size, 1) * 100%) auto !important;
+    background-position: var(--banner-mobile-x, 50%) var(--banner-mobile-y, 50%) !important;
+  }
+
+  .crop-stage.banner-mode {
+    width: 86vw;
+    height: 155px;
+  }
+
+  .crop-stage.mobile-banner-mode {
+    width: 78vw;
+    height: 210px;
+  }
+}
