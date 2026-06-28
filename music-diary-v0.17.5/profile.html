@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="icon" sizes="192x192" href="images/favicon.png">
+  <link rel="icon" sizes="512x512" href="images/favicon.png">
+<title>Perfil | Music Diary</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <header class="app-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="logo" href="feed.html">Music Diary</a>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" type="button" aria-label="Mensagens" title="Mensagens" data-alert-type="messages" data-nav-href="chat.html">
+          <span class="nav-icon" aria-hidden="true">💬</span>
+          <span class="nav-alert nav-alert-message" hidden></span>
+          <span class="nav-count" data-count-for="messages" hidden></span>
+        </button>
+        <button class="nav-icon-btn" type="button" aria-label="Notificações" title="Notificações" data-alert-type="notifications" data-nav-href="notifications.html">
+          <span class="nav-icon" aria-hidden="true">🔔</span>
+          <span class="nav-alert nav-alert-notification" hidden></span>
+          <span class="nav-count" data-count-for="notifications" hidden></span>
+        </button>
+        <div class="nav-menu-wrap">
+          <button class="nav-icon-btn" type="button" aria-label="Perfil" title="Perfil" aria-expanded="false" data-nav-toggle="profileMenu">
+            <span class="nav-icon" aria-hidden="true">👤</span>
+          </button>
+          <div class="nav-dropdown" id="profileMenu" data-nav-menu hidden>
+            <a href="profile.html">Meu perfil</a>
+            <a href="profile.html#editar">Editar perfil</a>
+            <a href="feed.html#favoritos">Favoritos</a>
+            <a href="profile.html#configuracoes">Configurações</a>
+            <button id="logoutBtn" type="button">Sair</button>
+          </div>
+        </div>
+        <div class="nav-menu-wrap">
+          <button class="nav-icon-btn" type="button" aria-label="Menu" title="Menu" aria-expanded="false" data-nav-toggle="mainMenu">
+            <span class="nav-icon" aria-hidden="true">☰</span>
+          </button>
+          <div class="nav-dropdown" id="mainMenu" data-nav-menu hidden>
+            <a href="desktop.html">Desktop</a>
+            <a href="feed.html">Feed</a>
+            <a href="playlists.html">Playlists</a>
+            <a href="explore.html">Explorar</a>
+            <a href="social.html">Seguidores</a>
+            <a href="profile.html#temas">Temas</a>
+            <a href="feed.html#salvos">Salvos</a>
+            <a href="index.html">Ajuda</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="card" id="profileView">Carregando perfil...</section>
+
+    <section class="card" style="margin-top:22px;">
+      <button id="editProfileBtn">⚙️ Editar perfil quando quiser</button>
+
+      <div id="editorPanel" class="hidden" style="margin-top:16px;">
+        <h2 class="window-title">Editor de perfil</h2>
+
+        <form id="profileForm">
+          <div class="editor-layout">
+            <div class="preview-box">
+              <div class="avatar-frame">
+                <img loading="lazy" id="avatarPreview" class="avatar-img" alt="Prévia da foto">
+              </div>
+              <p class="muted">Pré-visualização</p>
+            </div>
+
+            <div>
+              <label>Nome de usuário</label>
+              <input name="username" placeholder="exemplo: yasmim">
+
+              <label>Status do perfil</label>
+              <input name="customStatus" placeholder="Exemplo: 🎧 ouvindo Deftones">
+
+              <label>Bio</label>
+              <textarea name="bio" placeholder="Fale um pouco sobre você"></textarea>
+
+              <label>Link da foto de perfil</label>
+              <input id="photo" name="photo" placeholder="Cole o link da imagem">
+              <button type="button" id="loadPhotoBtn">Carregar foto por link</button>
+
+              <div class="upload-box photo-upload-box">
+                <strong>📁 Upload da foto</strong><p class="upload-hint">Clique para escolher ou arraste a imagem aqui.</p>
+                <input type="file" id="photoFileInput" accept="image/*">
+                <button type="button" id="uploadPhotoBtn">Carregar arquivo local</button>
+              </div>
+              <button type="button" id="resetPhotoBtn">Redefinir enquadramento da foto</button>
+              <button type="button" id="openPhotoCropBtn">Pré-visualizar corte da foto</button>
+
+              <label>Link da capa/banner</label>
+              <input id="banner" name="banner" placeholder="Cole o link da imagem de capa">
+              <button type="button" id="resetBannerBtn">Redefinir banner</button>
+              <button type="button" id="openBannerCropBtn">Editar banner</button>
+
+              <div class="upload-box banner-upload-box">
+                <strong>📁 Upload do banner</strong><p class="upload-hint">Clique para escolher ou arraste a imagem aqui.</p>
+                <input type="file" id="bannerFileInput" accept="image/*">
+                <button type="button" id="uploadBannerBtn">Carregar arquivo local</button>
+              </div>
+
+              
+              <label>Título da música do perfil</label>
+              <input name="musicTitle" placeholder="Exemplo: 505">
+
+              <label>Artista</label>
+              <input name="musicArtist" placeholder="Exemplo: Arctic Monkeys">
+
+              <label>Link da música</label>
+              <input name="musicUrl" placeholder="YouTube, Spotify ou link MP3">
+
+              <label>Tema</label>
+              <select name="theme">
+                <option value="sakura">Sakura</option>
+                <option value="aero">Frutiger Aero</option>
+                <option value="galaxy">Galaxy</option>
+                <option value="dark">Dark</option>
+              </select>
+
+              <div class="range-row">
+                <span>Zoom</span>
+                <input id="photoZoom" type="range" min="1" max="3" step="0.05" value="1" class="hidden old-move-control">
+              </div>
+
+              <div class="range-row">
+                <span>Lado</span>
+                <input id="photoX" type="range" min="-80" max="80" step="1" value="0" class="hidden old-move-control">
+              </div>
+
+              <div class="range-row">
+                <span>Altura</span>
+                <input id="photoY" type="range" min="-80" max="80" step="1" value="0" class="hidden old-move-control">
+              </div>
+
+              <button type="submit">Salvar alterações</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/profile.js"></script>
+  <script type="module" src="js/presence.js"></script>
+  <script type="module" src="js/navigation.js"></script>
+
+  <div id="cropModal" class="crop-modal hidden">
+    <div class="crop-panel">
+      <div class="crop-header">
+        <strong id="cropTitle">Pré-visualização</strong>
+        <button type="button" id="closeCropBtn">×</button>
+      </div>
+
+      <div class="crop-stage" id="cropStage">
+        <img loading="lazy" id="cropImage" alt="Pré-visualização da imagem">
+        <div id="cropFrame" class="crop-frame photo-frame"></div>
+      </div>
+
+      <div class="crop-controls">
+        <input id="cropZoom" type="range" min="0.5" max="3" step="0.05" value="1">
+        <input id="cropX" type="range" min="-160" max="160" step="1" value="0">
+        <input id="cropY" type="range" min="-160" max="160" step="1" value="0">
+      </div>
+
+      <div class="crop-actions">
+        <button type="button" id="applyCropBtn">Aplicar enquadramento</button>
+        <button type="button" id="resetCropBtn">Centralizar</button>
+      </div>
+      <p class="muted crop-help">A moldura mostra o corte da foto de perfil.</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/notifier.js"></script>
+</body>
+</html>

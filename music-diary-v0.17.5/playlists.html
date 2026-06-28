@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="icon" sizes="192x192" href="images/favicon.png">
+  <link rel="icon" sizes="512x512" href="images/favicon.png">
+<title>Playlists | Music Diary</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/playlists.css">
+</head>
+<body>
+  <header class="app-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="logo" href="feed.html">Music Diary</a>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" type="button" aria-label="Mensagens" title="Mensagens" data-alert-type="messages" data-nav-href="chat.html">
+          <span class="nav-icon" aria-hidden="true">💬</span>
+          <span class="nav-alert nav-alert-message" hidden></span>
+          <span class="nav-count" data-count-for="messages" hidden></span>
+        </button>
+        <button class="nav-icon-btn" type="button" aria-label="Notificações" title="Notificações" data-alert-type="notifications" data-nav-href="notifications.html">
+          <span class="nav-icon" aria-hidden="true">🔔</span>
+          <span class="nav-alert nav-alert-notification" hidden></span>
+          <span class="nav-count" data-count-for="notifications" hidden></span>
+        </button>
+        <div class="nav-menu-wrap">
+          <button class="nav-icon-btn" type="button" aria-label="Perfil" title="Perfil" aria-expanded="false" data-nav-toggle="profileMenu">
+            <span class="nav-icon" aria-hidden="true">👤</span>
+          </button>
+          <div class="nav-dropdown" id="profileMenu" data-nav-menu hidden>
+            <a href="profile.html">Meu perfil</a>
+            <a href="profile.html#editar">Editar perfil</a>
+            <a href="feed.html#favoritos">Favoritos</a>
+            <a href="profile.html#configuracoes">Configurações</a>
+            <button id="logoutBtn" type="button">Sair</button>
+          </div>
+        </div>
+        <div class="nav-menu-wrap">
+          <button class="nav-icon-btn" type="button" aria-label="Menu" title="Menu" aria-expanded="false" data-nav-toggle="mainMenu">
+            <span class="nav-icon" aria-hidden="true">☰</span>
+          </button>
+          <div class="nav-dropdown" id="mainMenu" data-nav-menu hidden>
+            <a href="desktop.html">Desktop</a>
+            <a href="feed.html">Feed</a>
+            <a href="playlists.html">Playlists</a>
+            <a href="explore.html">Explorar</a>
+            <a href="social.html">Seguidores</a>
+            <a href="profile.html#temas">Temas</a>
+            <a href="feed.html#salvos">Salvos</a>
+            <a href="index.html">Ajuda</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page playlist-page">
+    <section class="card">
+      <h2 class="window-title">Minhas playlists</h2>
+      <p class="muted">Crie playlists, adicione músicas e compartilhe seu gosto musical.</p>
+    </section>
+
+    <section class="playlist-grid" style="margin-top:20px;">
+      <form id="playlistForm" class="card">
+        <h2 class="window-title">Criar playlist</h2>
+
+        <label>Nome da playlist</label>
+        <input name="title" placeholder="Exemplo: madrugada">
+
+        <label>Descrição</label>
+        <textarea name="description" placeholder="Qual é a vibe dessa playlist?"></textarea>
+
+        <label>Link da capa</label>
+        <input name="cover" placeholder="Cole um link de imagem">
+        <div class="upload-box playlist-cover-upload-box"><strong>📁 Upload da capa</strong><p class="upload-hint">Clique ou arraste uma imagem aqui.</p><input type="file" id="playlistCoverFileInput" accept="image/*">
+        <button type="button" id="uploadPlaylistCoverBtn">Enviar capa do computador</button></div>
+
+        <button type="submit">Criar playlist</button>
+      </form>
+
+      <form id="songForm" class="card">
+        <h2 class="window-title">Adicionar música</h2>
+
+        <label>Playlist</label>
+        <select id="playlistSelect" name="playlist">
+          <option value="">Escolha uma playlist</option>
+        </select>
+
+        <label>Título da música</label>
+        <input name="musicTitle" placeholder="Exemplo: 505">
+
+        <label>Artista</label>
+        <input name="musicArtist" placeholder="Exemplo: Arctic Monkeys">
+
+        <label>Link da música</label>
+        <input name="musicUrl" placeholder="YouTube, Spotify ou MP3">
+
+        <button type="submit">Adicionar música</button>
+      </form>
+    </section>
+
+    <section id="playlistsList" style="margin-top:22px;"></section>
+  </main>
+
+  <script type="module" src="js/presence.js"></script>
+  <script type="module" src="js/playlists.js"></script>
+  <script type="module" src="js/navigation.js"></script>
+  <script type="module" src="js/notifier.js"></script>
+</body>
+</html>
